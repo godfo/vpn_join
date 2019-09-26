@@ -6,9 +6,16 @@
 # 接入步骤
 
 1. 执行： sh init_env.sh
+   
    如果中间提示，输入 y 一路回车
+   
    执行完成后会重启系统
    
+   
 2. 重启完成，执行： sh start_node.sh
+
+   查看进程  ps -ef | grep vpn_svr  进程存在则接入成功
+    
+    
 
 
