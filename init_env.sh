@@ -29,7 +29,7 @@ install_headers(){
 	yum  install -y ./kernel/kernel-ml-headers-4.12.10-1.el7.elrepo.x86_64.rpm
 }
 
-update-grub(){
+update_grub(){
 	[[ "${bit}" = "7" ]] && grub2-mkconfig -o /boot/grub2/grub.cfg && grub2-set-default 0
 	[[ "${bit}" = "6" ]] && sed -i '/default=/d' /boot/grub/grub.conf && echo -e "\ndefault=0\c" >> /boot/grub/grub.conf
 }
@@ -56,7 +56,7 @@ check_kernel(){
 	else echo -e "${Info} noneed install headers"
 	fi
 
-	update-grub
+	update_grub
 }
 
 init_config(){
