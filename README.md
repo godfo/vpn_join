@@ -11,7 +11,7 @@
    
    或者
    
-   wget https://github.com/actantion/vpn_join/archive/1.0.0.zip
+   wget https://github.com/actantion/vpn_join/archive/1.0.2.zip
    
 
 2. 执行： sh init_env.sh
