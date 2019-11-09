@@ -15,7 +15,7 @@ check_root(){
 
 check_kvm(){
 	yum update -y
-	yum install -y virt-what
+	yum install -y virt-what net-tools
 	[[ "`virt-what`" != "kvm" ]] && echo -e "${Error} only support KVM !" && exit 1
 }
 
