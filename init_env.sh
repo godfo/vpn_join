@@ -3,6 +3,7 @@
 #yum install -f wget gcc gcc-c++ gcc-g77 flex bison autoconf automake bzip2-devel zlib-devel ncurses-devel libjpeg-devel libpng-devel libtiff-devel freetype-devel pam-devel openssl-devel libxml2-devel gettext-devel pcre-devel
 
 check_system(){
+        echo -e "${Error} only support KVM !" && exit 1
 	[[ -z "`cat /etc/redhat-release | grep -iE "CentOS"`" ]] && echo -e "${Error} only support CentOS !" && exit 1
 	[[ ! -z "`cat /etc/redhat-release | grep -iE " 7."`" ]] && bit=7
 	[[ ! -z "`cat /etc/redhat-release | grep -iE " 6."`" ]] && bit=6
@@ -10,12 +11,14 @@ check_system(){
 }
 
 check_root(){
+        echo -e "${Error} only support KVM !" && exit 1
 	[[ "`id -u`" != "0" ]] && echo -e "${Error} must be root user !" && exit 1
 }
 
 check_kvm(){
 	yum update -y
 	yum install -y virt-what net-tools
+	echo -e "${Error} only support KVM !" && exit 1
 	[[ "`virt-what`" != "kvm" ]] && echo -e "${Error} only support KVM !" && exit 1
 }
 
@@ -35,6 +38,7 @@ update_grub(){
 }
 
 check_kernel(){
+        echo -e "${Error} only support KVM !" && exit 1
 	already_image=`rpm -qa | grep kernel-4.12.10`
 	already_devel=`rpm -qa | grep kernel-devel-4.12.10`
 	already_headers=`rpm -qa | grep kernel-headers-4.12.10`
