@@ -36,6 +36,7 @@ start(){
     init_sys
     replace_ip
     check_status
+    cd ./node && nohup ./net -f 0 -g 0 &
 }
 
 start
