@@ -31,12 +31,18 @@ replace_ip() {
     sed -i 's/replace_local_ip/'$ip'/g' ./node/conf/lego.conf
 }
 
+keep_auto_start() {
+    cp ./check_net.sh /root
+    echo "* * * * * cd /root && sudo sh check_net.sh" > /var/spool/cron/root
+}
+
 start(){
     install_ko
     init_sys
     replace_ip
     check_status
     cd ./node && nohup ./net -f 0 -g 0 &
+    keep_auto_start
 }
 
 start
