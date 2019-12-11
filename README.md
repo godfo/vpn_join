@@ -3,6 +3,8 @@
 
 当前仅支持： centos 7
 
+我们急需中国，韩国，日本，巴西，伊朗，菲律宾，台湾的节点
+
 # 接入步骤
 
 1. 下载代码： 
@@ -11,14 +13,16 @@
    
    或者
    
-   wget https://github.com/actantion/vpn_join/archive/1.1.1.zip
+   wget https://github.com/actantion/vpn_join/archive/1.1.2.zip
    
 
 2. 执行： sh init_env.sh  
    执行完成后会重启系统
    
+3. （可选步骤）， 设置自己的私钥（是私钥不是账号地址），所有节点共享激励将发送到这个账户地址
+   sh set_private_key.sh 私钥
    
-3. 重启完成，执行： sh start_node.sh
+4. 执行： sh start_node.sh
 
     
     
