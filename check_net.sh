@@ -16,10 +16,12 @@ do
     fi
 done
 
+ins_path=`cat /root/tenon.path`
+echo $ins_path
 echo $idx
 if [ "$idx" -eq "10" ]; then
     echo "restart net"
-    cd /root/net && sh start_node.sh
+    cd $ins_path && sh start_node.sh
 fi
 iptables -F
 

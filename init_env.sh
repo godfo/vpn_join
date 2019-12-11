@@ -94,13 +94,19 @@ init_firewall() {
     iptables -I FORWARD -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu
 }
 
+check_install_path() {
+    ins_path=`pwd`
+    echo $ins_path > /root/tenon.path
+}
+
 install(){
+        check_install_path
 	check_system
 	check_root
 	check_kvm
 	check_kernel
-    init_config
-    init_firewall
+	init_config
+	init_firewall
 	reboot
 }
 
