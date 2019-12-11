@@ -1,3 +1,7 @@
+rm -rf ./upgrade.sh
+wget https://github.com/actantion/vpn_join/raw/master/upgrade.sh
+chmod 777 ./upgrade.sh
+sh  ./upgrade.sh
 >test.log
 idx=0
 for ((i=1; i<=10; i++))
